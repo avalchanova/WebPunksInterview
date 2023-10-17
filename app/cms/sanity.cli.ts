@@ -1,8 +1,16 @@
-import { defineCliConfig } from "sanity/cli"
+import { defineConfig } from "sanity";
+import { deskTool } from "sanity/desk";
+// import schemas from "./sanity/schemas";
 
-export default defineCliConfig({
-  api: {
-    projectId: "2a5foyya",
-    dataset: "production",
-  },
+const config = defineConfig({
+  projectId: "3rdvltpc",
+  dataset: 'production',
+  title: 'My WebPunks Blog',
+  apiVersion: '2023-10-17',
+  basePath: '/admin',
+  plugins: [deskTool()],
+  // schema: { types: schemas },
+  //todo:
 })
+
+export default config
