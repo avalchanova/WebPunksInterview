@@ -6,7 +6,7 @@ import { schemaTypes } from "./schemas"
 export default defineConfig({
   name: "default",
   title: "WP Coding Interview",
-  projectId: "2tkojebt",
+  projectId: "2a5foyya",
   dataset: "production",
   plugins: [deskTool(), visionTool()],
   schema: {
