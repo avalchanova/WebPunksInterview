@@ -15,6 +15,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5459:5432"
+      # any request on port 5459 the physical machine will be redirected to port 5432 of the docker composer
     networks:
       - backend
     environment:
@@ -24,6 +25,7 @@ services:
 
 volumes:
   pgdata:
+
 
 networks:
   backend:
