@@ -8,7 +8,7 @@ export default defineConfig({
   title: "WP Coding Interview",
   projectId: "2tkojebt",
   dataset: "production",
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool(), visionTool()], //  visionTool() is for groq query
   schema: {
     types: schemaTypes,
   },
