@@ -1,10 +1,11 @@
 import { PortableText } from "@portabletext/react";
-import { getPage } from "@/app/sanity-utils";
+import {  getPage } from "@/app/sanity-utils";
 import { Page } from "../../../../types/Page";
+import { SlugOnly } from "../../../../types/Post";
 
 
 type Props = {
-    params: {slug:string}
+    params: {slug: SlugOnly}
 }
 
 export default async function Page({params}:Props){
