@@ -9,9 +9,6 @@ export class CreateTrackPageViewDTO {
   pageTitle: string
 
   @IsNumber()
-  timestamp: number
-
-  @IsNumber()
   count: number
 }
 

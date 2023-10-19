@@ -11,14 +11,28 @@ export class TrackPageViewService {
     private readonly trackPageViewRepo: Repository<TrackPageViewsEntity>
   ) {}
 
-  async findOne(slug: number) {
-    return await this.trackPageViewRepo.findOne({ where: { slug: slug } })
+  async findOne(slug: string) {
+    return await this.trackPageViewRepo.findOne({ where: { slug } })
   }
 
-  async updateCount(slug: number, trackPageViewDTO: TrackPageViewDTO) {
-    return await this.trackPageViewRepo.update(slug, {
-      ...trackPageViewDTO,
-      count: trackPageViewDTO.count + 1,
+  async updateCount(
+    slug: string,
+    trackPageViewDTO: TrackPageViewDTO
+  ): Promise<TrackPageViewsEntity> {
+    const trackPageViewFromDB = await this.trackPageViewRepo.findOne({
+      where: { slug: slug },
     })
+    if (trackPageViewFromDB) {
+      return this.trackPageViewRepo.save({
+        ...trackPageViewFromDB,
+        count: trackPageViewFromDB.count + 1,
+      })
+    }
+    const trackPageView: TrackPageViewsEntity = new TrackPageViewsEntity()
+    trackPageView.pageTitle = trackPageViewDTO.pageTitle
+    trackPageView.pageUrl = trackPageViewDTO.pageUrl
+    trackPageView.slug = slug
+    trackPageView.count = 1
+    return this.trackPageViewRepo.save(trackPageView)
   }
 }

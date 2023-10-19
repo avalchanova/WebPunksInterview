@@ -6,13 +6,16 @@ import { TrackPageViewDTO } from "./tracking.dto"
 export class TrackPageViewController {
   constructor(private readonly trackPageViewService: TrackPageViewService) {}
 
-  @Get(":id")
-  findOne(@Param("id") id: number) {
-    return this.trackPageViewService.findOne(id)
+  @Get(":slug")
+  findOne(@Param("slug") slug: string) {
+    return this.trackPageViewService.findOne(slug)
   }
 
-  @Put(":id")
-  update(@Param("id") id: number, @Body() trackPageViewDTO: TrackPageViewDTO) {
-    return this.trackPageViewService.updateCount(id, trackPageViewDTO)
+  @Put(":slug")
+  update(
+    @Param("slug") slug: string,
+    @Body() trackPageViewDTO: TrackPageViewDTO
+  ) {
+    return this.trackPageViewService.updateCount(slug, trackPageViewDTO)
   }
 }
