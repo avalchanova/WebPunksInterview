@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPosts } from "../sanity-utils";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'Recipe Post Static Meta Title',
+  description: 'Recipe Post Static Meta Description',
+}
 export default async function Home() {
     const posts = await getPosts(); // all of this is happening on the server
     //because all of the pages in the app folder are server-side rendered in nextjs13
