@@ -1,20 +1,10 @@
 import { createClient, groq } from "next-sanity";
 import { clientConfig } from "./sanity-config";
 import { Page } from "../../types/Page";
-import { Post } from "../../types/Post";
+import { Post, PostMetadata, SlugOnly } from "../../types/Post";
 
 // GROQ
-
-// const asd = `*[_type == "page" && slug.current == $slug][0]{
-//   _id,
-//   title,
-//   content[]{
-//   "children": children[0].text
-//   },
-//   "slug": slug.current
-// }`
-
-export async function getPage(slug: string): Promise<Page> {
+export async function getPage(slug: SlugOnly): Promise<Page> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "page" && slug.current == $slug][0]{
       _id,
@@ -40,7 +30,7 @@ export async function getPages(): Promise<Page[]> {
 } // this is for the navbar
 
 
-export async function getPost(slug: string): Promise<Post> {
+export async function getPost(slug: SlugOnly): Promise<Post> {
   return createClient(clientConfig).fetch(
     groq`
     *[_type == 'post' && seoData.slug.current == $slug][0]{
@@ -86,6 +76,21 @@ export async function getPosts(): Promise<Post[]> {
         "slug": slug.current,
       }
   }` // grabs all of the posts to display in the homepage
+
+  )
+
+}
+
+
+export async function getPostMeta(slug: SlugOnly): Promise<PostMetadata> {
+
+  return createClient(clientConfig).fetch(
+    groq`*[_type == 'post' && seoData.slug.current == $slug][0]{
+      "metaTitle": seoData.metaTitle,
+      "metaDescription": seoData.metaDescription,
+      "slug": seoData.slug.current
+  }`,
+    { slug: slug } // grabs all of the meta fields (aka the SEO fields) to attach to the <head> in the post's html
 
   )
 

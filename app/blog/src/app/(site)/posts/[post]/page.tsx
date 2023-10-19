@@ -1,9 +1,26 @@
-import { getPost } from '@/app/sanity-utils';
+import { Metadata } from 'next'
+import {  getPost, getPostMeta } from '@/app/sanity-utils';
 import Image from "next/image"
+import { SlugOnly } from '../../../../../types/Post';
 
 type Props = {
-    params: {post: string};
+    params: {post: SlugOnly};
+    searchParams: { [key: string]: string | string[] | undefined };
 };
+
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const slug = params.post
+    // fetch data
+  const metaObject = await getPostMeta(slug)
+
+  return {
+      title: metaObject.metaTitle,
+      description: metaObject.metaDescription
+  }
+}
 
 
 export default async function Post({params}: Props){
