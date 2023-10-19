@@ -1,7 +1,7 @@
 import { createClient, groq } from "next-sanity";
-import { clientConfig } from "./sanity-config";
-import { Page } from "../../types/Page";
-import { Post, PostMetadata, SlugOnly } from "../../types/Post";
+import { clientConfig } from "../sanity-config";
+import { Page } from "../../../types/Page";
+import { Post, PostMetadata, SlugOnly } from "../../../types/Post";
 
 // GROQ
 export async function getPage(slug: SlugOnly): Promise<Page> {
