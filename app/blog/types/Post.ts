@@ -27,11 +27,11 @@ type PostCover = {
 }
 
 // Define types for the postMetadata schema
-type PostMetadata = {
-  slug: {
-    current: string;
-  };
+export type PostMetadata = {
+  slug: string;
   metaTitle: string;
   metaDescription: string;
   // Add any other fields specific to your postMetadata object
 }
+
+export type SlugOnly = Pick<PostMetadata, 'slug'>; // only the slug
