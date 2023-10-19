@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getPosts } from "../sanity-utils";
+import { getPosts } from "../utils/sanity-utils";
 import { Metadata } from "next";
+import { sliceFirstHundred } from "../utils/formatting-utils";
+import '../styles/globals.css';
+
 
 export const metadata: Metadata = {
   title: 'Recipe Post Static Meta Title',
@@ -19,20 +22,14 @@ export default async function Home() {
 
   return (
     <div>
-        <h1 className="text-7xl font-extrabold">Hello, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-                Alex
-            </span>
-            !
-        </h1>
-        <p className="mt-3 text-xl text-gray-600">Aloha, everyone! Check out my posts!</p>
-        <h2 className="mt-24 font-bold text-gray-700 text-3xl">My Posts</h2>
-        <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h1 className="py-5 font-bold font-semibold text-gray-900 text-6xl">Title</h1>
+        <p className="py-5 text-black font-prompt font-light text-2xl leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, libero.</p>
+        <div className="py-5 mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedPosts.map((post) => ( // we would have needed to say that post is of type Post from the types created, but we did it in the sanity-utils.ts
                     <Link href={`/posts/${post.seoData.slug}`}
                     // getPosts() provides all the props we need in this page
                         key={post._id}
-                        className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-800 transition">
+                        className="bg-[#F5F5F5] shadow-xl hover:shadow-2xl rounded-3xl items-center">
                         {post.contents.cover && (
                           // if post.contents.cover is true then display this (the Image below)
                             <Image
@@ -41,12 +38,14 @@ export default async function Home() {
                                 alt={post.contents.title}
                                 width={750}
                                 height={300}
-                                className="object-cover rounded-lg border border-gray-500"
+                                className="object-cover rounded-tl-3xl rounded-tr-3xl"
                             />
                         )}
-
-                        <div className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-                            {post.contents.title}
+                        <div className="px-5 justify-center content-center">
+                          <div className="py-5 text-center font-extrabold text-3xl bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+                              {post.contents.title}
+                          </div>
+                              <p className="pb-5 whitespace-pre-wrap content-center justify-center">{sliceFirstHundred(post.contents.body)}</p>
                         </div>
                     </Link>
                 ))}

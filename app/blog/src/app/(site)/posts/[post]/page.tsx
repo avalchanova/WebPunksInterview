@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import {  getPost, getPostMeta } from '@/app/sanity-utils';
+import {  getPost, getPostMeta } from '@/app/utils/sanity-utils';
 import Image from "next/image"
 import { SlugOnly } from '../../../../../types/Post';
 

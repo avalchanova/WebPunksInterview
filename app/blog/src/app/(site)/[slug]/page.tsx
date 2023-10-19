@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react";
-import {  getPage } from "@/app/sanity-utils";
+import {  getPage } from "@/app/utils/sanity-utils";
 import { Page } from "../../../../types/Page";
 import { SlugOnly } from "../../../../types/Post";
 
@@ -10,7 +10,7 @@ type Props = {
 
 export default async function Page({params}:Props){
     const page = await getPage(params.slug)
-    console.log({params});
+
     return (
         <div>
             <h1 className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-5xl drop-shadow font-extrabold">
