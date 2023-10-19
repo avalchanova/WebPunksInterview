@@ -1,12 +1,18 @@
-import { ApiProperty } from "@nestjs/swagger"
+import { PartialType } from "@nestjs/swagger"
+import { IsNumber, IsString } from "class-validator"
 
-export class TrackPageViewRequest {
-  @ApiProperty()
+export class CreateTrackPageViewDTO {
+  @IsString()
   pageUrl: string
 
-  @ApiProperty()
+  @IsString()
   pageTitle: string
 
-  @ApiProperty()
+  @IsNumber()
   timestamp: number
+
+  @IsNumber()
+  count: number
 }
+
+export class TrackPageViewDTO extends PartialType(CreateTrackPageViewDTO) {}

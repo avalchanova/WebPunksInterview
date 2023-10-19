@@ -1,14 +1,18 @@
-import { Body, Controller, Post } from "@nestjs/common"
-import { ApiOperation } from "@nestjs/swagger"
-import { TrackPageViewRequest } from "./tracking.dto"
+import { Body, Controller, Get, Param, Put } from "@nestjs/common"
+import { TrackPageViewService } from "./tracking.service"
+import { TrackPageViewDTO } from "./tracking.dto"
 
 @Controller("v1/tracking")
-export class TrackingController {
-  @Post("trackPageView")
-  @ApiOperation({
-    operationId: "trackPageView",
-  })
-  async trackPageView(@Body() request: TrackPageViewRequest): Promise<void> {
-    console.log("trackPageView", request)
+export class TrackPageViewController {
+  constructor(private readonly trackPageViewService: TrackPageViewService) {}
+
+  @Get(":id")
+  findOne(@Param("id") id: number) {
+    return this.trackPageViewService.findOne(id)
+  }
+
+  @Put(":id")
+  update(@Param("id") id: number, @Body() trackPageViewDTO: TrackPageViewDTO) {
+    return this.trackPageViewService.updateCount(id, trackPageViewDTO)
   }
 }
