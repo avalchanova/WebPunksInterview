@@ -36,6 +36,7 @@ export default async function Home() {
                         {post.contents.cover && (
                           // if post.contents.cover is true then display this (the Image below)
                             <Image
+                                priority={true}
                                 src={post.contents.cover.desktop}
                                 alt={post.contents.title}
                                 width={750}
