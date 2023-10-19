@@ -83,7 +83,7 @@ export async function getPosts(): Promise<Post[]> {
       seoData{
         metaTitle,
         metaDescription,
-        "slug": slug.current
+        "slug": slug.current,
       }
   }` // grabs all of the posts to display in the homepage
 

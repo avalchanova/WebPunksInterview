@@ -9,7 +9,6 @@ type Props = {
 export default async function Post({params}: Props){
     const slug = params.post // this is called "post" because the folder is "[post]" and this is actually the post's slug
     const post = await getPost(slug)
-    // console.log({post: post.contents.body});
 
     return (
     <div>
