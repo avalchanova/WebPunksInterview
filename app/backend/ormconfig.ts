@@ -3,7 +3,7 @@ import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConne
 
 const config: PostgresConnectionOptions = {
   type: "postgres",
-  database: "testDB",
+  database: "wp-core",
   host: "localhost",
   port: 5432,
   username: "wp-usr",
