@@ -759,10 +759,10 @@
   resolved "https://registry.npmjs.org/@nestjs/mapped-types/-/mapped-types-2.0.2.tgz"
   integrity sha512-V0izw6tWs6fTp9+KiiPUbGHWALy563Frn8X6Bm87ANLRuE46iuBMD5acKBDP5lKL/75QFvrzSJT7HkCbB0jTpg==
 
-"@nestjs/platform-express@^10.0.0":
-  version "10.2.6"
-  resolved "https://registry.npmjs.org/@nestjs/platform-express/-/platform-express-10.2.6.tgz"
-  integrity sha512-4U16D5ot2570CR8Qm5qu/SBXsA2l5KxN7AVSGvzoWoBxjEoOnnZOapC5Pler3yYa0tT1xLhji61RX1gceKW3dw==
+"@nestjs/platform-express@^10.2.7":
+  version "10.2.7"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-10.2.7.tgz#b2ef2df01c0c757a3d356659460563a5246e7d0f"
+  integrity sha512-p+kp6aJtkgAdVpUrCVmM6MKtOvjsbt7QofBiZMidjYesZkMeG5gZ1D2SK8XzvQ8VXHJfFgEdY2xcKGB+wJLOYQ==
   dependencies:
     body-parser "1.20.2"
     cors "2.8.5"
@@ -4336,7 +4336,7 @@ pg-types@^2.1.0:
 
 pg@^8.11.3:
   version "8.11.3"
-  resolved "https://registry.npmjs.org/pg/-/pg-8.11.3.tgz"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-8.11.3.tgz#d7db6e3fe268fcedd65b8e4599cda0b8b4bf76cb"
   integrity sha512-+9iuvG8QfaaUrrph+kpF24cXkH1YOOUeArRNYIxq1viYHZagBxrTno7cecY1Fa44tJeZvaoG+Djpkc3JwehN5g==
   dependencies:
     buffer-writer "2.0.0"

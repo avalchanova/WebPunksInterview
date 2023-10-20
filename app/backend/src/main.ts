@@ -5,15 +5,25 @@ import { ValidationPipe } from "@nestjs/common"
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true, // will skip if a non defined prop is added and will create the user without it
-      forbidNonWhitelisted: true, // will return an error if there is an non defined prop
+      whitelist: true,
+      forbidNonWhitelisted: true,
     })
-  ) // validation for the user
+  )
+  app.use((req, res, next) => {
+    // here we give the front end (localhost:3000) to access the backenr (client)
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE")
+    res.header("Access-Control-Allow-Credentials", "true")
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+    next()
+  })
   await setupServer(app)
 
-  const port = process.env.HTTP_PORT || 3000
+  const port = process.env.HTTP_PORT || 3006
+
   await app.listen(port)
 
   console.info(`App started -> http://localhost:${port}/`)
