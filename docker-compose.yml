@@ -9,23 +9,21 @@
 version: "3.6"
 services:
   db:
-    image: "postgres:15-alpine"
-    restart: unless-stopped
+    image: "postgres"
+    restart: always
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./app/backend/data/db:/var/lib/postgresql/data
     ports:
-      - "5459:5432"
+      - "5432:5432"
       # any request on port 5459 the physical machine will be redirected to port 5432 of the docker composer
-    networks:
-      - backend
+    # networks:
+    #   - backend
     environment:
-      POSTGRES_DB: "wp-core"
-      POSTGRES_USER: "wp-usr"
-      POSTGRES_PASSWORD: "wp-pwd"
+      - POSTGRES_DB=wp-core
+      - POSTGRES_USER=wp-usr
+      - POSTGRES_PASSWORD=wp-pwd
+# volumes:
+#   pgdata:
 
-volumes:
-  pgdata:
-
-
-networks:
-  backend:
+# networks:
+#   backend:
