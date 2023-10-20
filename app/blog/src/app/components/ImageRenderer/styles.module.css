@@ -1,0 +1,41 @@
+/* YourComponent.module.css */
+
+/* Common styles for all screen sizes */
+.image {
+  width: 100%; /* Adjust as needed */
+  height: auto;
+}
+
+/* Media queries for different screen sizes */
+/* Desktop */
+@media (min-width: 1024px) {
+  .desktop {
+    display: block;
+  }
+  .tablet,
+  .mobile {
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet {
+    display: block;
+  }
+  .desktop,
+  .mobile {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .mobile {
+    display: block;
+  }
+  .desktop,
+  .tablet {
+    display: none;
+  }
+}
