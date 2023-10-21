@@ -1,9 +1,11 @@
 import Image from "next/image"
-import webpunksLogoSVG from "../../../../public/WEBPUNKS.svg"
 import webpunksDotSVG from "../../../../public/dot.svg"
 import styles from "./styles.module.css"
+import { getLogoTitleBgColor } from "@/app/utils/sanity-utils"
 
-function Footer() {
+async function Footer() {
+  const logoColorTitle = await getLogoTitleBgColor()
+
   return (
     <footer>
       <div
@@ -11,9 +13,10 @@ function Footer() {
       >
         <Image
           priority
-          src={webpunksLogoSVG}
+          src={logoColorTitle.logo}
           alt="Webpunks logo"
-          className="w-[207px] h-[27px]"
+          width={207}
+          height={27}
         />
         <div
           className={`flex flex-row justify-between ${styles.tabletTextContainer}`}

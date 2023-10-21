@@ -1,20 +1,24 @@
 import { defineType, defineField } from "sanity"
 
-const logoBgColorSchema = defineType({
+const logoBgColorSchemas = defineType({
   name: "logoBgColor",
-  type: "object",
-  title: "LogoBgColorSchema",
+  title: "Logo Background Color Schema",
+  type: "document",
   fields: [
     defineField({
       name: "logo",
       type: "image",
     }),
-    {
+    defineField({
+      name: "title",
+      type: "string",
+    }),
+    defineField({
       name: "backgroundColor",
       title: "Background Color",
       type: "string",
-    },
+    }),
   ],
 })
 
-export default logoBgColorSchema
+export default logoBgColorSchemas

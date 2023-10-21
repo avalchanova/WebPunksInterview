@@ -1,13 +1,14 @@
 "use client" //client in this case means we make backend tasks queries (ex. fetch)
 import Link from "next/link"
 import { sliceFirstHundred } from "../../utils/formatting-utils"
-import { getPosts } from "../../utils/sanity-utils"
+import { getLogoTitleBgColor, getPosts } from "../../utils/sanity-utils"
 import axios from "axios"
 import { localhostBackEnd, localhostFrontend } from "../../constants"
 import { CountPageClickPros } from "../../utils/data-utils"
 import ImageRenderer from "../ImageRenderer/ImageRenderer"
 
 async function PostsList() {
+  const logoColorTitle = await getLogoTitleBgColor()
   const posts = await getPosts() // all of this is happening on the server
   //because all of the pages in the app folder are server-side rendered in nextjs13
   const displayedPosts = posts.slice(0, 10) // a maximum of 10 posts
@@ -40,7 +41,7 @@ async function PostsList() {
                 title: post.contents.title,
               })
             }}
-            className="bg-[#F5F5F5] shadow-xl hover:shadow-2xl rounded-3xl items-center"
+            className={`bg-[${logoColorTitle.backgroundColor}] shadow-xl hover:shadow-2xl rounded-3xl items-center`}
           >
             {post.contents.cover && (
               // if post.contents.cover is true then display this (the Image below)

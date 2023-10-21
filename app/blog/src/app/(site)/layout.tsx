@@ -1,8 +1,7 @@
 import "../styles/globals.css"
 import type { Metadata } from "next"
-import { getPages } from "../utils/sanity-utils"
+import { getLogoTitleBgColor, getPages } from "../utils/sanity-utils"
 import Image from "next/image"
-import webpunksLogoSVG from "../../../public/WEBPUNKS.svg"
 import Footer from "../components/Footer/Footer"
 import Header from "../components/Header/Header"
 
@@ -17,6 +16,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const pages = await getPages()
+  const logoColorTitle = await getLogoTitleBgColor()
+
   return (
     <html lang="en">
       <body
@@ -24,7 +25,13 @@ export default async function RootLayout({
         suppressHydrationWarning={true}
       >
         <div className="fixed top-0 w-full py-5 pl-20 bg-black font-bold italic text-white text-2xl">
-          <Image priority src={webpunksLogoSVG} alt="Webpunks logo" />
+          <Image
+            priority
+            src={logoColorTitle.logo}
+            alt="Webpunks logo"
+            width={207}
+            height={27}
+          />
         </div>
         <div className="min-h-full px-5">
           <div className="w-full max-w-6xl mx-auto py-10">
