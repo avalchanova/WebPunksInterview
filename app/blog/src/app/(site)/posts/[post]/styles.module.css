@@ -1,0 +1,12 @@
+@media (max-width: 1024px) {
+  .tabletSinglePageContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tabletImageContainer {
+    max-width: 100%;
+  }
+  .tabletTextContainer {
+    padding-left: 0;
+  }
+}
