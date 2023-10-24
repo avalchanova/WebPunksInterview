@@ -10,6 +10,8 @@ async function Footer() {
     <footer>
       <div
         className={`flex flex-col justify-evenly bg-[#0046D2] min-h-[180px] w-full px-20 ${styles.tabletFooterContainer}`}
+      // CSS styling overwrites along the line, meaning from the left if we have display: flex will be overwritten if we write display: block at the end of the line
+      // the css will be the inline css if the screen is > 1024px, but if it is < 1024px it will activate the module css
       >
         <Image
           priority
