@@ -26,7 +26,7 @@ export default async function RootLayout({
       >
         <div className="fixed top-0 w-full py-5 pl-20 bg-black font-bold italic text-white text-2xl">
           <Image
-            priority
+            priority={true}
             src={logoColorTitle.logo}
             alt="Webpunks logo"
             width={207}
@@ -37,6 +37,7 @@ export default async function RootLayout({
           <div className="w-full max-w-6xl mx-auto py-10">
             <Header pages={pages} />
             <main className="">{children}</main>
+            {/* children in this case is the main page.tsx */}
           </div>
         </div>
         <Footer />
