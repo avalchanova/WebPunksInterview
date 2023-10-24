@@ -7,7 +7,7 @@ const HomeButton = () => {
   const path = usePathname()
   const IsItHome = path === "/" ? true : false
 
-  const handleClick = () => (IsItHome ? redirect("/") : router.back())
+  const handleClick = () => (IsItHome ? router.push("/") : router.back())
 
   const getNavigationText = () => (IsItHome ? "Home" : "Back")
 
