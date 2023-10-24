@@ -6,6 +6,8 @@ import { getLogoTitleBgColor } from "../utils/sanity-utils"
 export const metadata: Metadata = {
   title: "Recipe Post Static Meta Title",
   description: "Recipe Post Static Meta Description",
+  // when overwritten on a page post link and if back button is clicked, the title and description
+  // will be again as above
 }
 export default async function Home() {
   const logoColorTitle = await getLogoTitleBgColor()
