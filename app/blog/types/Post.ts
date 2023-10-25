@@ -33,4 +33,10 @@ export type PostMetadata = {
   // Add any other fields specific to your postMetadata object
 }
 
+export type LogoTitleBgColor = {
+  title: string
+  logo: string
+  backgroundColor: string
+}
+
 export type SlugOnly = Pick<PostMetadata, "slug"> // only the slug

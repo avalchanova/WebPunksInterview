@@ -1,0 +1,16 @@
+@media (max-width: 1024px) {
+  .tabletTextContainer {
+    flex-direction: column;
+  }
+  .tabletText {
+    font-size: small;
+  }
+  .tabletPrivacyContainer {
+    /* terms, privacy, webpunks 2023 */
+    justify-content: flex-start;
+  }
+  .tabletFooterContainer {
+    padding-left: 30px;
+    padding-right: 0;
+  }
+}
