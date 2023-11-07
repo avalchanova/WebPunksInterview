@@ -4,11 +4,11 @@ The Webpunks Coding Interview project is a multi-part web development initiative
 
 ### Project Components
 
-1. **CMS Application (app/cms)**: This part of the project is a CMS application built with Sanity. It enables users to create, edit, and delete blog posts.
+CMS Application (app/cms) a CMS application built with Sanity. It enables users to create, edit, and delete blog posts.
 
-2. **Backend Application (app/backend)**: The backend is developed using Node.js and NestJS, exposing REST APIs for various functionalities.
+Backend Application (app/backend): The backend is developed using Node.js and NestJS, exposing REST APIs for various functionalities.
 
-3. **Blog Application (app/blog)**: The frontend is a React-based Next.js application responsible for displaying the blog posts created in the CMS.
+Blog Application (app/blog): The frontend is a React-based Next.js application responsible for displaying the blog posts created in the CMS.
 
 
 The homepage displays a list of the ten most recent blog posts. Each post displays as a card with the cover image, title, and the first 100 characters of the post content and is linked to the post detail page.
