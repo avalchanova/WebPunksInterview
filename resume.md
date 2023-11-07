@@ -1,6 +1,4 @@
-Webpunks Coding Interview
-
-The Webpunks Coding Interview project is a multi-part web development initiative that showcases your proficiency in various web technologies. This project is designed to demonstrate your skills in building a content management system (CMS) application, creating a backend REST API, and developing a frontend application using React and Next.js.
+This a multi-part web development initiative that showcases your proficiency in various web technologies. This project is designed to demonstrate your skills in building a content management system (CMS) application, creating a backend REST API, and developing a frontend application using React and Next.js.
 
 Project Components
 
