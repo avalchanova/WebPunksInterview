@@ -1,3 +1,4 @@
+
 This project is a multi-part web development initiative that showcases my proficiency in various web technologies. It is designed to demonstrate my skills in building a content management system (CMS) application, creating a backend REST API, and developing a frontend application using React and Next.js.
 
 Project Components:
