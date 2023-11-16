@@ -5,6 +5,9 @@ import { defineConfig } from "sanity";
 const config = defineConfig({
   projectId: "2tkojebt",
   dataset: 'production',
+  api:{
+    projectId: "2tkojebt"
+  }
   //todo:
 })
 
